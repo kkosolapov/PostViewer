@@ -132,3 +132,54 @@ class DetailViewController: UIViewController {
     scrollView.addSubview(stackView)
     scrollView.translatesAutoresizingMaskIntoConstraints = false
   }
+  
+  func setupConstraints() {
+    
+    // imageView constraints
+    imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+    imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    imageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
+    
+    // scrollView constraints
+    scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+    scrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10).isActive = true
+    scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    
+    // newsTitleLabel constraints
+    newsTitleLabel.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 20).isActive = true
+    newsTitleLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 20).isActive = true
+    newsTitleLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -20).isActive = true
+    
+    // previewLabel constraints
+    previewLabel.topAnchor.constraint(equalTo: newsTitleLabel.bottomAnchor, constant: 20).isActive = true
+    previewLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 20).isActive = true
+    previewLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -20).isActive = true
+    
+    // likesStackView constraints
+    likesImageView.topAnchor.constraint(equalTo: previewLabel.bottomAnchor, constant: 20).isActive = true
+    likesImageView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: -300).isActive = true
+    likesImageView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
+    likesImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+    
+    // likesCountLabel constraints
+    likesCountLabel.topAnchor.constraint(equalTo: previewLabel.bottomAnchor, constant: 10).isActive = true
+    likesCountLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 70).isActive = true
+    likesCountLabel.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
+    likesCountLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    
+    // timestampLabel constraints
+    timestampLabel.topAnchor.constraint(equalTo: previewLabel.bottomAnchor, constant: 10).isActive = true
+    timestampLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -50).isActive = true
+    timestampLabel.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20).isActive = true
+    timestampLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    
+    // stackView constraints
+    stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+    stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+    stackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+    stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -40).isActive = true
+  }
+}
+
