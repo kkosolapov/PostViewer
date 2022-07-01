@@ -50,3 +50,22 @@ class MainViewController: UIViewController {
       sortingZA()
     }
   }
+
+  // Sorting methods
+  func sortingAZ() {
+    if segmentedControl.selectedSegmentIndex == 0 {
+      postModel = postModel?.sorted(by: { $0.likesCount < $1.likesCount})
+    } else {
+      postModel = postModel?.sorted(by: { $0.timestamp > $1.timestamp})
+    }
+    tableView.reloadData()
+  }
+  
+  func sortingZA() {
+    if segmentedControl.selectedSegmentIndex == 0 {
+      postModel = postModel?.sorted(by: { $0.likesCount > $1.likesCount})
+    } else {
+      postModel = postModel?.sorted(by: { $0.timestamp < $1.timestamp})
+    }
+    tableView.reloadData()
+  }
