@@ -35,3 +35,25 @@ class PostManager {
     }
     task.resume()
   }
+
+  public func getPost(id: Int, completion: @escaping (Result<PostID, Error>) -> Void) {
+    guard let url = URL(string: "\(urlBase)posts/\(id).json") else { return }
+    
+    let task = URLSession.shared.dataTask(with: url) { data, _, error  in
+      if let error = error {
+        completion(.failure(error))
+      }
+      else if let safeData = data {
+        do {
+          let result = try JSONDecoder().decode(PostModel.self, from: safeData)
+          print("PostID: \(result.post.postId)")
+          completion(.success(result.post))
+        }
+        catch {
+          completion(.failure(error))
+        }
+      }
+    }
+    task.resume()
+  }
+}
