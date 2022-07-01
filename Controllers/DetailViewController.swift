@@ -90,3 +90,31 @@ class DetailViewController: UIViewController {
     stack.spacing = 10
     return stack
   }()
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    newsTitleLabel.text = newsTitle
+    likesCountLabel.text = likes
+    timestampLabel.text = date
+    
+    setupViews()
+    setupScrollView()
+    setupConstraints()
+    
+    PostManager.shared.getPost(id: id) { [weak self] result in
+      switch result {
+      case .success(let posts):
+        self?.post = posts
+        
+        self!.imageView.loadFrom(URLAddress: posts.postImage)
+        
+        DispatchQueue.main.async {
+          self!.previewLabel.text = posts.text
+        }
+        
+      case .failure(let error):
+        print(error)
+      }
+    }
+  }
