@@ -95,3 +95,13 @@ class MainViewController: UIViewController {
       }
     }
   }
+
+  //MARK: - View setup
+  
+  func setupSortingButton(){
+    let rightButton = rightButton
+    rightButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+    rightButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    let rightButtonItem = UIBarButtonItem(customView: rightButton)
+    navigationItem.rightBarButtonItem = rightButtonItem
+  }
