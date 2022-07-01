@@ -118,3 +118,12 @@ class DetailViewController: UIViewController {
       }
     }
   }
+  
+  //MARK: - View setup
+  func setupViews(){
+    title = "Natife News"
+    view.backgroundColor = .white
+    view.addSubview(scrollView)
+    view.addSubview(imageView)
+    
+  }
