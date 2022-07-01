@@ -127,3 +127,8 @@ class DetailViewController: UIViewController {
     view.addSubview(imageView)
     
   }
+  
+  func setupScrollView() {
+    scrollView.addSubview(stackView)
+    scrollView.translatesAutoresizingMaskIntoConstraints = false
+  }
