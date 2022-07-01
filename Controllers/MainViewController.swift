@@ -69,3 +69,29 @@ class MainViewController: UIViewController {
     }
     tableView.reloadData()
   }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    title = "News"
+    tableView.delegate = self
+    tableView.dataSource = self
+    view.backgroundColor = .systemBackground
+    
+    setupSortingButton()
+    setupConstraints()
+    
+    // Getting data
+    PostManager.shared.getNews { [weak self] result in
+      switch result {
+      case .success(let posts):
+        self?.postModel = posts
+        
+        DispatchQueue.main.async {
+          self?.tableView.reloadData()
+        }
+      case .failure(let error):
+        print(error)
+      }
+    }
+  }
