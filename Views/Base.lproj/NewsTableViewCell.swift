@@ -103,3 +103,9 @@ class NewsTableViewCell: UITableViewCell {
     postView.addSubview(timestampLabel)
     postView.addSubview(expandBotton)
   }
+
+  // MARK: - Actions
+  @objc func buttonAction(_ sender: UIButton!) {
+    buttonTapBlock?()
+    print("Button tapped")
+  
