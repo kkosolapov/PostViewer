@@ -94,3 +94,12 @@ class NewsTableViewCell: UITableViewCell {
     setupViews()
     setupConstraints()
   }
+    
+  func setupViews() {
+    addSubview(postView)
+    postView.addSubview(newsTitleLabel)
+    postView.addSubview(previewLabel)
+    postView.addSubview(likesStackView)
+    postView.addSubview(timestampLabel)
+    postView.addSubview(expandBotton)
+  }
