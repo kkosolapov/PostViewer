@@ -108,4 +108,42 @@ class NewsTableViewCell: UITableViewCell {
   @objc func buttonAction(_ sender: UIButton!) {
     buttonTapBlock?()
     print("Button tapped")
+  }
   
+  //MARK: - View setup
+  func setupConstraints() {
+    
+    // newsTitleLabel constraints
+    newsTitleLabel.topAnchor.constraint(equalTo: postView.topAnchor, constant: 8).isActive = true
+    newsTitleLabel.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: 15).isActive = true
+    newsTitleLabel.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -10).isActive = true
+    newsTitleLabel.heightAnchor.constraint(equalToConstant: 70).isActive = true
+    
+    // previewLabel constraints
+    previewLabel.topAnchor.constraint(equalTo: newsTitleLabel.bottomAnchor).isActive = true
+    previewLabel.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: 15).isActive = true
+    previewLabel.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -20).isActive = true
+    
+    // likesStackView constraints
+    likesStackView.topAnchor.constraint(equalTo: previewLabel.bottomAnchor, constant: 10).isActive = true
+    likesStackView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: 10).isActive = true
+    likesStackView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+    
+    // timestampLabel constraints
+    timestampLabel.topAnchor.constraint(equalTo: previewLabel.bottomAnchor, constant: 10).isActive = true
+    timestampLabel.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -10).isActive = true
+    timestampLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+    
+    // expandBotton constraints
+    expandBotton.topAnchor.constraint(equalTo: likesStackView.bottomAnchor, constant: 10).isActive = true
+    expandBotton.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: 0).isActive = true
+    expandBotton.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: 0).isActive = true
+    expandBotton.bottomAnchor.constraint(equalTo: postView.bottomAnchor, constant: 0).isActive = true
+    expandBotton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    
+    // postView constraints
+    postView.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+    postView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
+    postView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
+    postView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12).isActive = true
+  }
