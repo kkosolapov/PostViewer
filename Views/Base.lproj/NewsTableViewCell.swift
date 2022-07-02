@@ -162,3 +162,8 @@ class NewsTableViewCell: UITableViewCell {
       timestampLabel.text = "\(interval.day!) days ago"
     }
   }
+    
+  public func configureButton(withTitle buttonTitle: String) {
+    expandBotton.setTitle(buttonTitle, for: .normal)
+  }
+}
