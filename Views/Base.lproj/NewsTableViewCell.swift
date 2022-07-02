@@ -147,3 +147,18 @@ class NewsTableViewCell: UITableViewCell {
     postView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
     postView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12).isActive = true
   }
+    
+  public func configure(with model: Post) {
+    newsTitleLabel.text = model.title
+    previewLabel.text = model.previewText
+    likesCountLabel.text = String(model.likesCount)
+        
+    let postDate = Date(timeIntervalSince1970: model.timestamp)
+    let interval = Date() - postDate
+    
+    if Int(interval.day!) <= 0 {
+      timestampLabel.text = "today"
+    } else {
+      timestampLabel.text = "\(interval.day!) days ago"
+    }
+  }
