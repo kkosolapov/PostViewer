@@ -1,10 +1,7 @@
 import UIKit
 
-
 class NewsTableViewCell: UITableViewCell {
-  
-//  var postManager = PostManager()
-  
+    
   // MARK: - Properties
   
   static let identifier = "NewsTableViewCell"
@@ -92,3 +89,8 @@ class NewsTableViewCell: UITableViewCell {
     fatalError()
   }
   
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    setupViews()
+    setupConstraints()
+  }
